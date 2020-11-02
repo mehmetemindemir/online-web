@@ -68,7 +68,11 @@ const HeaderOne = ({ aboutOverlay,menu }) => {
               </button>
               <Link href="/" as={process.env.PUBLIC_URL + "/"}>
                 <a>
-
+                  <img
+                      src={process.env.PUBLIC_URL + "/assets/images/logo.png"}
+                      className="img-fluid"
+                      alt=""
+                  />
                 </a>
               </Link>
             </div>

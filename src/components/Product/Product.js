@@ -49,7 +49,7 @@ const ProductGridWrapper = ({
 
           return (
             <ProductGrid
-              key={product.id}
+              key={product.prdId}
               product={product}
               discountedPrice={discountedPrice}
               productPrice={productPrice}
@@ -64,7 +64,7 @@ const ProductGridWrapper = ({
               deleteFromCompare={deleteFromCompare}
               addToast={addToast}
               cartItems={cartItems}
-              column={column}
+              column={4}
             />
           );
         })}

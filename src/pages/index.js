@@ -5,6 +5,8 @@ import * as actions from "../redux/actions/index"
 import {connect} from "react-redux";
 import LayoutHome from "../components/Layout/LayoutHome";
 import Product from "../components/Product/Product";
+import heroSliderData from "../data/hero-sliders/hero-slider-one.json"
+import HeroSliderOne from "../components/Slider/HeroSliderOne";
 class Home extends React.Component {
     state={
         layout:"grid four-column",
@@ -34,13 +36,18 @@ class Home extends React.Component {
         }
         return (
             <LayoutHome aboutOverlay={false} menu={menu} >
+                <HeroSliderOne sliderData={heroSliderData} />
                 <div className="product-tab space-mb--r100">
                     <Container>
                         <Row className="space-mb--rm50">
-                        <Product
-                            products={this.props.productList}
-                            bottomSpace="space-mb--r50"
-                        />
+                            <div className="shop-products">
+                                <Row className="grid four-column">
+                                    <Product
+                                        products={this.props.productList}
+                                        bottomSpace="space-mb--r50"
+                                    />
+                                </Row>
+                            </div>
                         </Row>
                     </Container>
                 </div>
