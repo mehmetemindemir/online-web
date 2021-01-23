@@ -1,73 +1,65 @@
 import Link from "next/link";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import {IoIosArrowDown, IoIosArrowForward} from "react-icons/io";
+import {slugify} from "../../../shared/utility";
+
 const Navigation = ({menu}) => {
-  return (
-    <nav className="header-content__navigation space-pr--15 space-pl--15 d-none d-lg-block">
-      <ul>
-        <li className="position-relative">
-          <Link
-            href="/blog/standard-left-sidebar"
-            as={process.env.PUBLIC_URL + "/blog/standard-left-sidebar"}
-          >
-            <a>Tum Kategoriler</a>
-          </Link>
-          <IoIosArrowDown />
-          <ul className="sub-menu sub-menu--one-column">
-            {menu.map((item,index) => (
+    return (
+        <nav className="header-content__navigation space-pr--15 space-pl--15 d-none d-lg-block">
+            <ul>
+                <li className="position-relative">
+                    <Link href="/#">
+                        <a>Tum Kategoriler</a>
+                    </Link>
+                    <IoIosArrowDown/>
+                    <ul className="sub-menu sub-menu--one-column">
+                        {menu.map((item, index) => (
 
-              <li key={index} >
-                <Link key={index} href="/blog/standard-left-sidebar"  as={process.env.PUBLIC_URL + "/blog/standard-left-sidebar"}>
-                  <a>{item.categoryName}</a>
-                </Link>
-                {item.subCate.length>0?(
-                    <IoIosArrowForward />
-                ):(
-                    ""
-                )}
+                            <li key={item.id}>
+                                <Link href="/category/[categoryName]/[category]/[id]" replace={true}
+                                      as={`/category/${slugify(item.categoryName)}/${item.id}/0`}>
+                                    <a>{item.categoryName}</a>
+                                </Link>
+                                {item.subCate.length > 0 ? (
+                                    <IoIosArrowForward/>
+                                ) : (
+                                    ""
+                                )}
 
+                                <ul className="sub-menu--one-column sub-menu--one-column--child-menu">
+                                    {item.subCate.map((item2, index2) => (
 
-                    {item.subCate.map((item2,index2) => (
-                      <ul key={index2} className="sub-menu--one-column sub-menu--one-column--child-menu">
-                        <li>
-                          <Link    href="/blog/standard-left-sidebar"   as={process.env.PUBLIC_URL + "/blog/standard-left-sidebar"}>
-                            <a>{item2.categoryName}</a>
-                          </Link>
-                        </li>
-                      </ul>
-                    ))}
+                                        <li key={item2.id}>
+                                            <Link href="/category/[categoryName]/[category]/[id]"
+                                                  as={`/category/${slugify(item2.categoryName)}/${item.id}/${item2.id}`}>
+                                                <a>{item2.categoryName}</a>
+                                            </Link>
+                                        </li>
 
-              </li>
-            ))}
+                                    ))}
+                                </ul>
+                            </li>
+                        ))}
 
-          </ul>
-        </li>
-        <li className="position-relative">
-          <Link
-              href="/blog/standard-left-sidebar"
-              as={process.env.PUBLIC_URL + "/blog/standard-left-sidebar"}
-          >
-            <a>Kampanyalar</a>
-          </Link>
-        </li>
-        <li className="position-relative">
-          <Link
-              href="/blog/standard-left-sidebar"
-              as={process.env.PUBLIC_URL + "/blog/standard-left-sidebar"}
-          >
-            <a>Gunun Firsatlari</a>
-          </Link>
-        </li>
-        <li className="position-relative">
-          <Link
-              href="/blog/standard-left-sidebar"
-              as={process.env.PUBLIC_URL + "/blog/standard-left-sidebar"}
-          >
-            <a>Yeni Urunler</a>
-          </Link>
-        </li>
-      </ul>
-    </nav>
-  );
+                    </ul>
+                </li>
+                <li className="position-relative">
+                    <Link href="/offers/Kampanyalar">
+                        <a>Kampanyalar</a>
+                    </Link>
+                </li>
+                <li className="position-relative">
+                    <Link href="/offers/daylyoffers">
+                        <a>Gunun Firsatlari</a>
+                    </Link>
+                </li>
+                <li className="position-relative">
+                    <Link href="/offers/newproduct">
+                        <a>Yeni Urunler</a>
+                    </Link>
+                </li>
+            </ul>
+        </nav>
+    );
 };
 
 export default Navigation;

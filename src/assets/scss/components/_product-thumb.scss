@@ -1,21 +1,26 @@
-
 /*=============================================
 =            product thumb            =
 =============================================*/
 
 
 /* product grid */
+.product-grid:hover {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .150) !important
+}
 
 .product-grid,
 .product-list {
   &__image {
     position: relative;
+
     & > a {
       display: block;
+
       img {
         width: 100%;
 
         transition: 0.9s;
+
         &:nth-child(1) {
           z-index: 2;
 
@@ -23,6 +28,7 @@
 
           opacity: 1;
         }
+
         &:nth-child(2) {
           position: absolute;
           z-index: 1;
@@ -45,6 +51,7 @@
 
     display: flex;
     flex-direction: column;
+
     span {
       font-size: 14px;
       font-weight: 500;
@@ -64,7 +71,7 @@
       color: $white;
       border-radius: 100%;
 
-@include respond(small-desktop) {
+      @include respond(small-desktop) {
         line-height: 40px;
 
         width: 40px;
@@ -153,19 +160,23 @@
     position: relative;
 
     padding-top: 25px;
+
     .title {
       position: relative;
 
       h3 {
         margin-bottom: 0;
+
         a {
-          font-size: 17px;
+          font-size: 16px;
           font-weight: 400;
           line-height: 1.6;
 
           display: block;
           visibility: visible;
-
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
           margin-bottom: 10px;
 
           transition-duration: 0.6s;
@@ -197,7 +208,7 @@
         border: none;
         background: none;
 
-@include respond(small-desktop) {
+        @include respond(small-desktop) {
           font-size: 16px;
         }
 
@@ -228,6 +239,7 @@
         margin-right: 5px;
 
         color: $black--two;
+
         &.discounted {
           font-size: 12px;
           font-weight: 600;
@@ -254,27 +266,9 @@
         }
       }
     }
+
     .product-grid__content {
-      .title {
-        h3 {
-          a {
-            visibility: hidden;
 
-            transform: translateY(-60%);
-
-            opacity: 0;
-          }
-        }
-
-        & > button,
-        & > a {
-          visibility: visible;
-
-          transform: translateY(0);
-
-          opacity: 1;
-        }
-      }
     }
 
     .product-grid__floating-icons,
@@ -301,6 +295,7 @@
 
   &--absolute-content {
     position: relative;
+
     .product-grid__content {
       position: absolute;
       z-index: 3;
@@ -311,13 +306,12 @@
 }
 
 
-
 /* product list */
 
 .product-list {
   display: flex;
 
-@include respond(large-mobile) {
+  @include respond(large-mobile) {
     flex-wrap: wrap;
   }
 
@@ -326,7 +320,7 @@
 
     margin-right: 30px;
 
-@include respond(large-mobile) {
+    @include respond(large-mobile) {
       flex-basis: 100%;
 
       margin-right: 0;
@@ -339,7 +333,7 @@
 
     padding-top: 0;
 
-@include respond(large-mobile) {
+    @include respond(large-mobile) {
       flex-basis: 100%;
     }
 
@@ -353,12 +347,15 @@
 
     .price {
       margin-bottom: 40px;
+
       .main-price {
         font-size: 16px;
+
         &.discounted {
           font-size: 14px;
         }
       }
+
       .discounted-price {
         font-size: 16px;
       }
@@ -396,8 +393,10 @@
 
   &__image {
     width: 120px;
+
     a {
       display: block;
+
       img {
         width: 100%;
       }
@@ -450,6 +449,7 @@
           margin-right: 5px;
 
           color: $black--two;
+
           &.discounted {
             font-size: 12px;
             font-weight: 600;
@@ -515,13 +515,13 @@
 }
 
 
-
 /* product thumb resize */
 
 .shop-products {
   .col-lg-3 {
     transition: 0.5s;
   }
+
   .grid {
     .product-list {
       display: none;
@@ -537,6 +537,7 @@
       }
     }
   }
+
   .list {
     .product-grid {
       display: none;

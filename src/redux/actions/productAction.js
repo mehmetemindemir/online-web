@@ -63,6 +63,7 @@ export const changedPrdStatus = (data, productCritea) => {
 
 const getProductMain = (data) => {
     return dispatch => {
+        console.log("productList :", data)
         axios.post("public/productList", data)
             .then(res => {
                 if (res.data.statusCode === 'OK') {
@@ -85,3 +86,14 @@ export const getProduct = (data) => {
     }
 
 }
+export const getAsyncProduct = async (data) => await axios.post('public/productList', data)
+    .then(res => ({
+        error: false,
+        product: res.data,
+    }))
+    .catch((error) => ({
+            error: true,
+            product: null,
+            errorMsg: error
+        }),
+    );

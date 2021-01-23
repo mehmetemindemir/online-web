@@ -1,5 +1,5 @@
 module.exports = {
-  env: {
-    PUBLIC_URL: ""
-  }
+    env: {
+        PUBLIC_URL: ""
+    }
 };
