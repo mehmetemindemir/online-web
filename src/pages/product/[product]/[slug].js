@@ -97,7 +97,6 @@ const ProductDetail = ({
                     </Row>
                     <Row>
                         <Col>
-                            {/* product description tab */}
                             {descriptionView}
                         </Col>
                     </Row>
@@ -151,6 +150,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail);
 
 export async function getServerSideProps(context) {
     const id = context.params.slug;
+    let product = null;
     const reqMenu = {
         companyId: 1
     };
@@ -164,10 +164,13 @@ export async function getServerSideProps(context) {
     }
     const resMenu = await actions.getAsyncMenu(reqMenu);
     const resProduct = await actions.getAsyncProduct(reqData);
+    if (!resProduct.error && resProduct.product.data) {
+        product = resProduct.product.data[0];
+    }
     return {
         props: {
             menu: resMenu.menu.data,
-            product: resProduct.product.data[0]
+            product: product,
         }
     }
 }

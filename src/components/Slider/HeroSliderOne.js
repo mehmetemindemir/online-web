@@ -33,7 +33,7 @@ const HeroSliderOne = ({sliderData}) => {
                             return (
                                 <div
                                     className="hero-slider-one__slide swiper-slide"
-                                    key={single.id}
+                                    key={single.sliderId}
                                 >
                                     <div className="slider-image">
                                         <img
@@ -43,16 +43,14 @@ const HeroSliderOne = ({sliderData}) => {
                                         />
                                     </div>
                                     <div className="slider-content">
-                                        <h2 className="color-title text-white space-mb--20">
-                                            {single.subtitle}
-                                        </h2>
+
                                         <h1
                                             className="main-title space-mb--30 text-white"
                                             dangerouslySetInnerHTML={{__html: single.title}}
                                         />
                                         <Link
-                                            href={single.url}
-                                            as={process.env.PUBLIC_URL + single.url}
+                                            href={single.sliderUrl}
+                                            as={process.env.PUBLIC_URL + single.sliderUrl}
                                         >
                                             <a className="lezada-button lezada-button--medium">
                                                 shop now

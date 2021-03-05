@@ -96,7 +96,7 @@ export async function getStaticProps() {
     };
     const resMenu = await actions.getAsyncMenu(reqMenu);
 
-
+    
     return {
         props: {
             menu: resMenu.menu.data,

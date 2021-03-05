@@ -43,18 +43,18 @@ const Navigation = ({menu}) => {
                     </ul>
                 </li>
                 <li className="position-relative">
-                    <Link href="/offers/Kampanyalar">
-                        <a>Kampanyalar</a>
-                    </Link>
-                </li>
-                <li className="position-relative">
-                    <Link href="/offers/daylyoffers">
-                        <a>Gunun Firsatlari</a>
+                    <Link href="/brand">
+                        <a>Markalar</a>
                     </Link>
                 </li>
                 <li className="position-relative">
                     <Link href="/offers/newproduct">
                         <a>Yeni Urunler</a>
+                    </Link>
+                </li>
+                <li className="position-relative">
+                    <Link href="/pricelist">
+                        <a>Fiyat listesi</a>
                     </Link>
                 </li>
             </ul>
